@@ -9,27 +9,6 @@ app.get('/', function(request, response) {
     return response.send("Olá");
 })
 
-app.get('/teste/:id/:outro', function(request, response) {
-    // ACESSE PARA TESTAR
-    // http://localhost:8000/teste/15151/456
-    const id = request.params.id;
-    const outro = request.params.outro;
-    return response.send("TEste " + id + " Outro " + outro);
-});
-
-app.get('/querys', function(request, response) {
-    // ACESSE PARA TESTAR
-    // http://localhost:8000/querys?nome=Marcio&sobrenome=Ferreira
-    const nome = request.query.nome;
-    const sobrenome = request.query.sobrenome;
-    return response.send("Querys " + nome + sobrenome);
-})
-
-app.get('/teste2', function(request, response) {
-    return response.send("Test 23");
-})
-
-
 // CRUD - USUARIOS
 // https://dontpad.com/iw
 app.get('/usuarios', function(request, response) {
