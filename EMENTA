@@ -30,3 +30,6 @@ COMANDOS UTILIZADOS:
 - npm i express
 - npm i mysql
 - callback
+
+
+npm i mysql-async-simple
