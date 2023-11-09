@@ -17,15 +17,6 @@ app.put('/usuarios/:id', usuarioController.update);
 app.delete('/usuarios/:id', usuarioController.delete);
 
 
-
-const usuarioController = new UsuariosController();
-app.get('/usuarios', usuarioController.findAll);
-app.get('/usuarios/:id', usuarioController.findOne);
-app.post('/usuarios', usuarioController.create);
-app.put('/usuarios/:id', usuarioController.update);
-app.delete('/usuarios/:id', usuarioController.delete);
-
-
 app.listen(8000, function() {
     console.log("Servidor executando...");
 })
