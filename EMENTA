@@ -33,3 +33,12 @@ COMANDOS UTILIZADOS:
 
 
 npm i mysql-async-simple
+
+
+NODEMON
+npm i
+npm i nodemon
+npm start
+
+BIBLIOTECA DE WEB TOKEN - 
+npm install jsonwebtoken

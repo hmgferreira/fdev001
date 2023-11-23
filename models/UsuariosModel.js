@@ -1,6 +1,13 @@
 import Connection from "../config/Connection.js";
 
 class UsuariosModel {
+
+    async authenticate(login, senha) {
+        const connection = new Connection();
+        const sql = "SELECT * FROM usuarios WHERE login = ? AND senha = ?";
+        const retorno = await connection.query(sql, [login, senha]);
+        return retorno;
+    }
     
     async findAll(){
         const connection = new Connection();
