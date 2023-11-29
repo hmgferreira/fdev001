@@ -1,5 +1,5 @@
 import Connection from "../config/Connection.js";
-
+import Paginate from '../config/PaginateConfig.js';
 class UsuariosModel {
 
     async authenticate(login, senha) {
@@ -8,10 +8,38 @@ class UsuariosModel {
         const retorno = await connection.query(sql, [login, senha]);
         return retorno;
     }
-    
-    async findAll(){
+
+    async getTotalRegister() {
+        
         const connection = new Connection();
-        const sql = "SELECT * FROM usuarios";
+        const sql = `SELECT count(id) as total FROM usuarios`;
+        const retorno = await connection.query(sql, {});
+        if(retorno[0] !== undefined) {
+            return retorno[0].total;
+        }
+        return 0;
+    }
+    
+    async findAll(page, filter){
+
+        const total = await this.getTotalRegister();
+        const paginate = Paginate.getConfigPaginate(page, total, Paginate.limit);
+
+        let where = '';
+        if(filter.nome != undefined && filter.nome != '') {
+            where = where + ` AND nome like '%${filter.nome}%'`;
+        }
+
+        if(filter.login != undefined && filter.login != '') {
+            where = where + ` AND login like '%${filter.login}%'`;
+        }
+
+        const connection = new Connection();
+        const sql = `SELECT * 
+            FROM usuarios 
+            WHERE 1 = 1 ${where}
+            LIMIT ${paginate.limite} OFFSET ${paginate.offset}`;
+        
         const retorno = await connection.query(sql, {});
         return retorno;
     }

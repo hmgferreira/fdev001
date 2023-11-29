@@ -4,7 +4,9 @@ class UsuariosController {
 
     async findAll(request, response) {
         const usuariosModel = new UsuariosModel();
-        const data = await usuariosModel.findAll();
+        const page = request.query.page || 1; // IF..ELSE TERNARIO
+
+        const data = await usuariosModel.findAll(page, request.query);
         return response.json(data);
     }
 
