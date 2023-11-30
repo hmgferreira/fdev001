@@ -7,7 +7,16 @@ OBJETIVOS:
  - VALIDACAO
  - UPLOAD DE IMAGEM
  - ENVIO DE EMAIL
+ 
 
+ENVIANDO EMAIL COM NODE:
+
+https://www.npmjs.com/package/nodemailer
+
+
+LINK: ORMS:
+ - https://www.prisma.io/
+ - https://sequelize.org/
  
 
 CONTEUDO:
